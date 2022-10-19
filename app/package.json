@@ -1,14 +1,13 @@
 {
-  "name": "app",
+  "name": "cobra",
   "version": "0.1.0",
-  "main": "src/main.js",
-  "description": "Python Teach",
+  "main": "public/electron.js",
   "author": {
     "name": "lucasrpatten",
     "email": "lucasrpattendev@gmail.com"
   },
-  "license": "AGNU-3.0",
   "homepage": "./",
+  "license": "AGNU-3.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,6 +16,7 @@
     "@types/node": "^16.11.64",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,17 +25,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron": "WEB_URL=http://localhost:3000 electron .",
-    "electron-prd": "electron .",
-    "electron-forge": "WEB_URL=http://localhost:3000 electron-forge start",
-    "electron-forge-prd": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "build-all": "npm run build; npm run make"
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "prepack": "npm run react-build",
+    "predist": "npm run react-build",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -lw",
+    "dev": "concurrently \"BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
@@ -56,41 +55,12 @@
     ]
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.66",
-    "@electron-forge/maker-deb": "^6.0.0-beta.66",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.66",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
-    "@electron-forge/maker-zip": "^6.0.0-beta.66",
     "autoprefixer": "^10.4.12",
+    "concurrently": "^7.4.0",
     "electron": "^21.0.1",
+    "electron-builder": "^23.6.0",
     "postcss": "^8.4.17",
-    "tailwindcss": "^3.1.8"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "tailwindcss": "^3.1.8",
+    "wait-on": "^6.0.1"
   }
 }

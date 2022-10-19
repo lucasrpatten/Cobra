@@ -1,0 +1,27 @@
+{
+  "appId": "com.cobra.app",
+  "productName": "Cobra",
+  "copyright": "@lucasrpatten",
+  "directories": {
+      "output": "out",
+      "buildResources": "resources"
+  },
+  "files": [
+      "package.json",
+      "app/**/*",
+      "node_modules"
+  ],
+  "mac": {
+      "target": "pkg",
+      "category": "public.app-category.utilities"
+    },
+  "win": {
+      "target": "nsis"
+  },
+  "linux": {
+      "target": "AppImage",
+      "category": "Utility",
+      "extraResources": [
+      ]
+  }
+}
