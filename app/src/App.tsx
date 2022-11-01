@@ -1,15 +1,14 @@
 import React from 'react';
-import Profile from './Profile';
 import './index.css';
+import { Link } from 'react-router-dom';
+
 
 const App = () => {
   return (
-    <div className="w-full h-full bg-black absolute">
-      <div className='flex flex-row h-full justify-center items-center'>
-        <Profile name="Lucas"/>
-      </div>
+    <div>
+      <Link to="/Login">afaf</Link>
     </div>
   );
 }
 
-export default App; 
+export default App;
