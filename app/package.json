@@ -56,6 +56,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2",
     "@types/react-helmet": "^6.1.5",
     "autoprefixer": "^10.4.12",
     "concurrently": "^7.4.0",
