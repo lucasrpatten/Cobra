@@ -1,23 +1,26 @@
-import React from 'react';
+import { SetStateAction, useState, useEffect } from 'react';
 import Profile from './Profile';
 import './index.css';
 import monke from './monke.jpg'
+import api from './api';
 
 const { ipcRenderer } = window.require('electron');
 
 
 const Login = () => {
-  async function getSavePath() {
-    const res = ipcRenderer.sendSync('getSavePath');
-    const response: string = res;
-    return response;
-  }
+  const [data, setData] = useState('');
+  async function getData() {
+    const res = await ipcRenderer.invoke(api.getPath);
+    setData(res);
+  };
+
   return (
-    <div className="w-full h-full bg-black absolute">
+    <div className="w-full h-full bg-black ab;solute">
       <div className='flex flex-row h-full w-full justify-center items-center absolute'>
         <Profile name="Lucas" profilePicture={monke}/>
         <Profile name="Create New User" profilePicture={monke}/>
-        <p>{getSavePath}</p>
+        <button onClick={getData}>get data</button>
+        {data}
       </div>
     </div>
   );
