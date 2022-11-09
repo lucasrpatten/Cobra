@@ -44,10 +44,11 @@ function createWindow() {
 
 
   ipcMain.handle('get-profiles', async () => {
-    const subdirs = await readdir(app.getPath('userData') + '/Profiles');
+    const profilesDir = app.getPath('userData') + '/Profiles'
+    const subdirs = await readdir();
     let users = []
     for (let i = 0; i < subdirs.length; i++) {
-      const jsonFile = subdirs + subdirs[i] + '/' + subdirs[i] + '.json'
+      const jsonFile = profilesDir + subdirs[i] + '/' + subdirs[i] + '.json'
       const rawData = fs.readFileSync(jsonFile)
       const jsonData = JSON.parse(rawData);
       users.push([jsonData["username"], jsonData["pfp"]]);
