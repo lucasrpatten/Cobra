@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./../index.css";
 
 const { ipcRenderer } = window.require("electron");
@@ -19,6 +19,9 @@ const CreateProfile = () => {
   }
   return (
     <>
+      <Link to="/login">
+        <button>Frick Go Back</button>
+      </Link>
       <form onSubmit={createThenNav}>
         <input
           id="username_input"

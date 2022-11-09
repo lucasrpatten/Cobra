@@ -7,6 +7,9 @@ const { ipcMain } = require('electron')
 const path = require('path');
 const fs = require('fs');
 const isDev = require('electron-is-dev');
+const { promisify } = require('util');
+const readdir = promisify(fs.readdir);
+const getDirName = require('path').dirname;
 
 let mainWindow;
 
@@ -23,23 +26,33 @@ function createWindow() {
 
   // communication api
 
-  ipcMain.handle('create-profile', async (_, user) => {
-    const profilePath = app.getPath("userData") + "/Profiles"
-    if (!fs.existsSync) {
-      fs.mkdirSync(profilePath, (err) => {
-        if (err) throw err;
-      }, { recursive: true });
+  ipcMain.handle('create-profile', async (_, user, picture = "monke") => {
+    const profilePath = app.getPath("userData") + "/Profiles/" + user + '/'
+    const toWrite = {
+      username: user,
+      pfp: picture
     }
-    const toWrite = profilePath + '/' + user
-    if (!fs.existsSync(toWrite)) {
-      fs.writeFileSync(profilePath + '/' + user, 'hello');
-    }
+    fs.promises.mkdir(profilePath, { recursive: true })
+      .catch(() => {
+        console.error();
+      })
+      .then(() => {
+        const file = profilePath + user + '.json'
+        fs.writeFileSync(file, JSON.stringify(toWrite))
+      });
   });
 
 
   ipcMain.handle('get-profiles', async () => {
-    const files = fs.readdirSync(app.getPath('userData') + '/Profiles')
-    return files
+    const subdirs = await readdir(app.getPath('userData') + '/Profiles');
+    let users = []
+    for (let i = 0; i < subdirs.length; i++) {
+      const jsonFile = subdirs + subdirs[i] + '/' + subdirs[i] + '.json'
+      const rawData = fs.readFileSync(jsonFile)
+      const jsonData = JSON.parse(rawData);
+      users.push([jsonData["username"], jsonData["pfp"]]);
+    }
+    return users
   })
 
 
