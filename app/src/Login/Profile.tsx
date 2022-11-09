@@ -1,6 +1,5 @@
 import React from 'react';
-import './index.css'
-import { Link } from 'react-router-dom';
+import './../index.css'
 
 
 interface ProfileDetails {
@@ -8,16 +7,14 @@ interface ProfileDetails {
   profilePicture: string;
 }
 
-const Profile = (props:ProfileDetails) => {
+const Profile = (props: ProfileDetails) => {
   return (
     <>
-    <Link to="/">
       <div className='w-28 h-32 mx-2'>
-        <p>{}</p>
+        <p>{ }</p>
         <div className='bg-white w-full h-28 rounded-full overflow-hidden'><img src={props.profilePicture} alt="Icon" /></div>
         <p className='text-center w-full text-white'>{props.name}</p>
       </div>
-      </Link>
     </>
   );
 }

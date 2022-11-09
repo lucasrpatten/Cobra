@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const App = () => {
   return (
     <div>
-      <Link to="/Login">afaf</Link>
+      <Link to="/Login">Click Here</Link>
     </div>
   );
 }

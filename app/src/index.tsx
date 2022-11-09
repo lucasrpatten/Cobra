@@ -1,8 +1,9 @@
 import React from 'react';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { HashRouter, Route, Routes} from 'react-router-dom';
-import Login from './Login';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import Login from './Login/Login';
+import CreateProfile from './Login/CreateProfile';
 
 const ReactDOM = require('react-dom/client');
 
@@ -10,14 +11,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </HashRouter>
-  </React.StrictMode>
+  <HashRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/create-profile" element={<CreateProfile />} />
+    </Routes>
+  </HashRouter>
 
 );
 
