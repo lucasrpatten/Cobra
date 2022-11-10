@@ -12,7 +12,7 @@ const Profile = (props: ProfileDetails) => {
     <>
       <div className='w-28 h-32 mx-2'>
         <p>{ }</p>
-        <div className='bg-white w-full h-28 rounded-full overflow-hidden'><img src={props.profilePicture} alt="Icon" /></div>
+        <div className='bg-white w-full h-28 rounded-full overflow-hidden'><img src={"/assets/" + props.profilePicture + ".jpg"} alt="Icon" /></div>
         <p className='text-center w-full text-white'>{props.name}</p>
       </div>
     </>
