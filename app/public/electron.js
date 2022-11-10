@@ -9,7 +9,6 @@ const fs = require('fs');
 const isDev = require('electron-is-dev');
 const { promisify } = require('util');
 const readdir = promisify(fs.readdir);
-const getDirName = require('path').dirname;
 
 let mainWindow;
 
@@ -44,8 +43,8 @@ function createWindow() {
 
 
   ipcMain.handle('get-profiles', async () => {
-    const profilesDir = app.getPath('userData') + '/Profiles'
-    const subdirs = await readdir();
+    const profilesDir = app.getPath('userData') + '/Profiles/'
+    const subdirs = await readdir(profilesDir);
     let users = []
     for (let i = 0; i < subdirs.length; i++) {
       const jsonFile = profilesDir + subdirs[i] + '/' + subdirs[i] + '.json'
