@@ -4,19 +4,18 @@ import "./../index.css";
 
 const { ipcRenderer } = window.require("electron");
 
-
 const CreateProfile = () => {
   const [uname, setUname] = useState("");
 
   const navigate = useNavigate();
   const createProfile = async function (event: any) {
     event.preventDefault();
-    await ipcRenderer.invoke('create-profile', uname);
+    await ipcRenderer.invoke("create-profile", uname);
   };
   const createThenNav = (event: any) => {
-    createProfile(event)
-    navigate('/login')
-  }
+    createProfile(event);
+    navigate("/");
+  };
   return (
     <>
       <Link to="/">
@@ -31,11 +30,7 @@ const CreateProfile = () => {
           onChange={(e) => setUname(e.target.value)}
           required
         />
-        <input
-          id="create_user"
-          type={'submit'}
-          value='Create User'
-        />
+        <input id="create_user" type={"submit"} value="Create User" />
       </form>
     </>
   );

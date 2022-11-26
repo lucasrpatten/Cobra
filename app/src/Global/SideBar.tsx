@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Properties {
   position?: string;
@@ -26,7 +27,7 @@ const SideBar = (props: Properties) => {
           "grid-container left-0 inline-grid w-1/3 h-screen bg-zinc-900"
         }
       >
-        afdsa
+        <Link to="/playground">afhsdj</Link>
       </div>
     </>
   );

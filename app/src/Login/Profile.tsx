@@ -39,7 +39,7 @@ const Profile = (props: ProfileDetails) => {
     navigate("/home");
   };
   const navigate = useNavigate();
-  const pfp = "/assets/" + props.profilePicture + ".jpg";
+  const pfp = "/assets/" + props.profilePicture + ".svg";
   if (props.name === "Create New User") {
     return (
       <div
