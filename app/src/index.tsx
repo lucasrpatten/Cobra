@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Login from './Login/Login';
 import CreateProfile from './Login/CreateProfile';
+import Home from './Home/Home';
 
 const ReactDOM = require('react-dom/client');
 
@@ -13,9 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <HashRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/create-profile" element={<CreateProfile />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   </HashRouter>
 

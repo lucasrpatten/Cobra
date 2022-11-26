@@ -2,7 +2,7 @@ const fs = require('fs');
 const { promisify } = require('util');
 const readdir = promisify(fs.readdir);
 
-
+// Create Profiles
 global.share.ipcMain.handle('create-profile', async (_, user, picture = "monke") => {
   const profilePath = global.share.app.getPath("userData") + "/Profiles/" + user + '/'
   const toWrite = {
@@ -14,18 +14,18 @@ global.share.ipcMain.handle('create-profile', async (_, user, picture = "monke")
       console.error();
     })
     .then(() => {
-      const file = profilePath + user + '.json'
+      const file = profilePath + 'Profile.json'
       fs.writeFileSync(file, JSON.stringify(toWrite))
     });
 });
 
-
+// Get Profiles
 global.share.ipcMain.handle('get-profiles', async () => {
   const profilesDir = global.share.app.getPath('userData') + '/Profiles/'
   const subdirs = await readdir(profilesDir);
   let users = []
   for (let i = 0; i < subdirs.length; i++) {
-    const jsonFile = profilesDir + subdirs[i] + '/' + subdirs[i] + '.json'
+    const jsonFile = profilesDir + subdirs[i] + '/Profile.json'
     const rawData = fs.readFileSync(jsonFile)
     const jsonData = JSON.parse(rawData);
     users.push([jsonData["username"], jsonData["pfp"]]);

@@ -39,6 +39,7 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (mainWindow === null) {
+    localStorage.clear(); // clear save stuff from previous user
     createWindow();
   }
 });

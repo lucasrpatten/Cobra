@@ -1,6 +1,6 @@
-import React from 'react';
-import './../index.css'
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./../index.css";
 
 interface ProfileDetails {
   name: string;
@@ -8,15 +8,32 @@ interface ProfileDetails {
 }
 
 const Profile = (props: ProfileDetails) => {
-  return (
-    <>
-      <div className='w-28 h-32 mx-2'>
-        <p>{ }</p>
-        <div className='bg-white w-full h-28 rounded-full overflow-hidden'><img src={"/assets/" + props.profilePicture + ".jpg"} alt="Icon" /></div>
-        <p className='text-center w-full text-white'>{props.name}</p>
-      </div>
-    </>
-  );
-}
 
-export default Profile
+  const login = () => {
+
+  }
+  const navigate = useNavigate();
+  const pfp = "/assets/" + props.profilePicture + ".jpg"
+  if (props.name === "Create New User") {
+    return (
+      <div onClick={() => navigate("/create-profile")} className="w-28 h-32 mx-2">
+        <div className="bg-white w-full h-28 rounded-full overflow-hidden">
+          <img src={pfp} alt="Icon" />
+        </div>
+        <p className="text-center w-full text-white">{props.name}</p>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="w-28 h-32 mx-2">
+        <div className="bg-white w-full h-28 rounded-full overflow-hidden">
+          <img src={pfp} alt="Icon" />
+        </div>
+        <p className="text-center w-full text-white">{props.name}</p>
+      </div>
+    );
+  }
+};
+
+export default Profile;

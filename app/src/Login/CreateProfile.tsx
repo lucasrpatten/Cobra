@@ -19,7 +19,7 @@ const CreateProfile = () => {
   }
   return (
     <>
-      <Link to="/login">
+      <Link to="/">
         <button>Frick Go Back</button>
       </Link>
       <form onSubmit={createThenNav}>
