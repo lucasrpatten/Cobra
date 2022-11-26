@@ -1,9 +1,33 @@
 import React from "react";
 
-const SideBar = () => {
+interface Properties {
+  position?: string;
+  maxWidth?: string;
+}
+
+const SideBar = (props: Properties) => {
+  const checkProps = () => {
+    if (!props.position) {
+      props.position = "absolute";
+    }
+    if (!props.maxWidth) {
+      props.maxWidth = "max-w-[400px]";
+    }
+  };
   return (
     <>
-      <div className="grid-container float-left inline-grid relative w-1/3 max-w-[400px]"></div>
+      {checkProps()}
+      <div
+        className={
+          props.position +
+          " " +
+          props.maxWidth +
+          " " +
+          "grid-container left-0 inline-grid w-1/3 h-screen bg-zinc-900"
+        }
+      >
+        afdsa
+      </div>
     </>
   );
 };
