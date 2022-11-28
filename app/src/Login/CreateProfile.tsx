@@ -12,6 +12,7 @@ const CreateProfile = () => {
     event.preventDefault();
     await ipcRenderer.invoke("create-profile", uname);
   };
+
   const createThenNav = (event: any) => {
     createProfile(event);
     navigate("/");

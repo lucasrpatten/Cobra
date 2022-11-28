@@ -1,17 +1,16 @@
 import React from "react";
 import "./../index.css";
-import { useNavigate, useLocation } from "react-router-dom";
-import SideBar from "../Global/SideBar";
+import { useNavigate } from "react-router-dom";
+import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 const Home = (props: any) => {
   const navigate = useNavigate();
-  const handleIncoming = () => {
-    let l = useLocation;
-  };
+  let user = localStorage.getItem("user");
+  let pfp = localStorage.getItem("pfp");
 
   return (
     <>
-      <SideBar position="relative float-left" maxWidth="x" />
+      <LeftSide />
       <RightSide />
     </>
   );
