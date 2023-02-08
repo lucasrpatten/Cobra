@@ -1,9 +1,8 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import LeftSide from "./LeftSide";
+import LeftSide from "./LeftHome";
 import RightHome from "./RightPanel/RightHome";
 
-const Home = ({update}: any) => {
+const Home: React.FC = () => {
   const [rightSide, setRightSide] = useState(<RightHome />);
 
   const handleLeftData = (data:any)=> {
@@ -13,7 +12,7 @@ const Home = ({update}: any) => {
   return (
     <>
       <LeftSide updateRightSide={handleLeftData}/>
-      {rightSide}
+      <div className="w-2/3 relative float-right min-h-screen bg-green-300">{rightSide}</div>
     </>
   );
 };

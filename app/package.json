@@ -61,6 +61,7 @@
     "concurrently": "^7.4.0",
     "electron": "^21.0.1",
     "electron-builder": "^23.6.0",
+    "framer-motion": "^9.0.2",
     "postcss": "^8.4.17",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.4.3",

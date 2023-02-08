@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import React from "react";
 import ModuleButton from "./ModuleButton";
 import PythonBasicsNav from "./RightPanel/PythonBasicsNav";
 import RightHome from "./RightPanel/RightHome";
@@ -7,8 +6,7 @@ import RightHome from "./RightPanel/RightHome";
 interface Properties {
   updateRightSide: any;
 }
-
-const LeftSide = (props: Properties) => {
+const LeftSide: React.FC<Properties> = (props: Properties) => {
   return (
     <>
       <div

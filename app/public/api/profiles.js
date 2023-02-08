@@ -24,8 +24,8 @@ global.share.ipcMain.handle('get-profiles', async () => {
   const profilesDir = global.share.app.getPath('userData') + '/Profiles/'
   const subdirs = await readdir(profilesDir);
   let users = []
-  for (let i = 0; i < subdirs.length; i++) {
-    const jsonFile = profilesDir + subdirs[i] + '/Profile.json'
+  for (const element of subdirs) {
+    const jsonFile = profilesDir + element + '/Profile.json'
     const rawData = fs.readFileSync(jsonFile)
     const jsonData = JSON.parse(rawData);
     users.push([jsonData["username"], jsonData["pfp"]]);

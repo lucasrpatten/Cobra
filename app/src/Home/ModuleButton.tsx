@@ -1,13 +1,13 @@
 
-import * as React from "react";
+import React from 'react';
 
 interface Properties {
   title: string;
   passChildData: any;
-  page: any;
+  page: React.ReactElement;
 }
 
-const ModuleButton = (props: Properties) => {
+const ModuleButton: React.FC<Properties> = (props: Properties) => {
   return (
     <>
       <div>
