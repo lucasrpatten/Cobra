@@ -1,7 +1,7 @@
 import React from "react";
-import snekMascot from "./snekMascot.svg";
+import snekMascot from "../snekMascot.svg";
 
-const RightSide = () => {
+const RightHome = () => {
   return (
     <>
       <div className="w-2/3 h-screen relative float-right bg-green-300 inline-grid grid-rows-6 grid-cols-12">
@@ -20,4 +20,4 @@ const RightSide = () => {
     </>
   );
 };
-export default RightSide;
+export default RightHome;

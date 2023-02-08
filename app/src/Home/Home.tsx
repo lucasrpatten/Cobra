@@ -1,17 +1,19 @@
-import React from "react";
-import "./../index.css";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import LeftSide from "./LeftSide";
-import RightSide from "./RightSide";
-const Home = (props: any) => {
-  const navigate = useNavigate();
-  let user = localStorage.getItem("user");
-  let pfp = localStorage.getItem("pfp");
+import RightHome from "./RightPanel/RightHome";
+
+const Home = ({update}: any) => {
+  const [rightSide, setRightSide] = useState(<RightHome />);
+
+  const handleLeftData = (data:any)=> {
+    setRightSide(data);
+  }
 
   return (
     <>
-      <LeftSide />
-      <RightSide />
+      <LeftSide updateRightSide={handleLeftData}/>
+      {rightSide}
     </>
   );
 };
