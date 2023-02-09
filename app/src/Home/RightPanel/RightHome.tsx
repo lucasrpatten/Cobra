@@ -1,5 +1,6 @@
 import React from "react";
 import snekMascot from "../snekMascot.svg";
+import { Link } from "react-router-dom";
 
 const RightHome: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const RightHome: React.FC = () => {
           alt=""
           className="row-start-2 w-full col-span-6 col-start-4 row-span-3 truncate"
         />
+        <Link to="/playground">HELLO</Link>
       </div>
     </>
   );

@@ -1,11 +1,9 @@
 import React from "react";
+import IDE from "../IDE/IDE";
 const Playground = () => {
   return (
     <>
-      <script src="skulpt/skulpt.js" type="text/javascript"></script>
-      <script src="skulpt/skulpt-stdlib.js" type="text/javascript"></script>
-      <div id="lu"></div>
-      <div id="output"></div>
+      <IDE />
     </>
   );
 };
