@@ -1,4 +1,4 @@
-**/node_modules/!(react-scripts/scripts|react-scripts/config)node_modules/(!react-scripts)
+**/node_modules/!(react-scripts/scripts|react-scripts/config)/
 out/
 
 __pycache__/
