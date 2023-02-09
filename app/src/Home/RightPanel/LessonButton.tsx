@@ -62,10 +62,7 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
                   <p className="font-light text-sm">
                     This is a small description of this lesson.
                   </p>
-                  <span
-                    onClick={handleCloseBubble}
-                    className="cursor-pointer"
-                  >
+                  <span onClick={handleCloseBubble} className="cursor-pointer">
                     <CloseButton />
                   </span>
                 </div>
@@ -80,7 +77,7 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
           </AnimatePresence>
         </div>
         <div onClick={handleShowBubble} className="cursor-pointer">
-          <div className="border-red-500 w-20 h-20 bg-white rounded-full overflow-hidden text-center">
+          <div className="border-red-500 w-32 h-32 bg-white rounded-full overflow-hidden text-center">
             hi
           </div>
           <div className="">{props.title}</div>
