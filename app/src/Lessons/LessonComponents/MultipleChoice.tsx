@@ -24,7 +24,6 @@ const MultipleChoice: FC<Properties> = ({
     setSelected(option);
     setCorrect(option === correctOption);
   };
-
   return (
     <div className="flex flex-col">
       <h3 className="text-2xl font-bold">{title}</h3>

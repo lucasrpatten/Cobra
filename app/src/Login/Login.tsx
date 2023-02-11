@@ -5,7 +5,7 @@ import "./../index.css";
 const { ipcRenderer } = window.require("electron");
 
 const Login = () => {
-  const [profiles, setProfiles] = useState<any>();
+  const [profiles, setProfiles] = useState<any>([]);
   async function getProfiles() {
     setProfiles([]);
     const res = await ipcRenderer.invoke("get-profiles");
