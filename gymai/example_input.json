@@ -1,0 +1,32 @@
+{
+  "username": "Lucas",
+  "user_performance": {
+    "challenge_id_1": {
+      "attempts": 3,
+      "time_taken": 240,
+      "accuracy": 0.85,
+      "complexity": "medium",
+      "type": "sorting",
+      "expected_difficulty": "easy",
+      "feedback": "too easy"
+    },
+    "challenge_id_2": {
+      "attempts": 2,
+      "time_taken": 180,
+      "accuracy": 0.95,
+      "complexity": "hard",
+      "type": "searching",
+      "expected_difficulty": "medium",
+      "feedback": "just right"
+    },
+    "challenge_id_3": {
+      "attempts": 1,
+      "time_taken": 120,
+      "accuracy": 0.80,
+      "complexity": "easy",
+      "type": "conditionals",
+      "expected_difficulty": "hard",
+      "feedback": "too hard"
+    }
+  }
+}

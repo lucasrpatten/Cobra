@@ -1,0 +1,32 @@
+[
+  {
+    "user_data": {
+      "user_performance": {
+        "sort_the_list": {
+          "attempts": 3,
+          "time_taken": 240,
+          "accuracy": 0.85,
+          "difficulty": 57,
+          "type": "sorting",
+          "feedback": "too easy"
+        },
+        "find_string": {
+          "attempts": 2,
+          "time_taken": 180,
+          "accuracy": 0.95,
+          "difficulty": 77,
+          "type": "searching",
+          "feedback": "just right"
+        },
+        "if_if_if_then": {
+          "attempts": 1,
+          "time_taken": 120,
+          "accuracy": 0.80,
+          "difficulty": 94,
+          "type": "conditionals",
+          "feedback": "too hard"
+        }
+      }
+    }
+  }
+]
