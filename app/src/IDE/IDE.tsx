@@ -10,7 +10,7 @@ loader.config({ monaco });
 interface Properties {}
 
 const IDE: React.FC<Properties> = (props: Properties) => {
-  const [editorState, setEditorState] = useState('print("Hello World!")');
+  const [editorState, setEditorState] = useState<string>('print("Hello World!")');
   const handleEditorChange: any = (value: string, event: any) => {
     setEditorState(value);
   };
@@ -18,19 +18,14 @@ const IDE: React.FC<Properties> = (props: Properties) => {
   const runCode = async function () {
     const exePath = "/usr/bin/python";
     const result = await ipcRenderer.invoke("run-python-code", {
-      editorState,
-      exePath,
+      code: editorState,
+      interpreterPath: exePath,
     });
     console.log(result);
     return result;
   };
 
-  // async function runCode() {
-  //   const res = await ipcRenderer.invoke("run-python-code", editorState, "usr/bin/python");
-  //   return res;
-  // };
-
-  const options = {
+  const editorOptions = {
     tabSize: 4, //normal tab size
     automaticLayout: true, // word wrapping
     selectOnLineNumbers: true,
@@ -48,7 +43,7 @@ const IDE: React.FC<Properties> = (props: Properties) => {
         onChange={handleEditorChange}
         width="100%"
         height="100%"
-        options={options}
+        options={editorOptions}
       />
     </>
   );

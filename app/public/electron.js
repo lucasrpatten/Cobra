@@ -10,6 +10,7 @@ const path = require('path');
 const isDev = require('electron-is-dev');
 
 require('./api/profiles')
+require('./api/codeRunner')
 
 let mainWindow;
 

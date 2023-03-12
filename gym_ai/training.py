@@ -26,9 +26,36 @@ class RecencyWeightingLayer(tf.keras.layers.Layer):
         return config
 
 
+class CustomWeightedLayer(tf.keras.layers.Layer):
+    def __init__(self, weights, **kwargs):
+        super(CustomWeightedLayer, self).__init__(**kwargs)
+        self.weights = weights
+
+    def call(self, inputs):
+        weighted_inputs = inputs * self.weights
+        return weighted_inputs
+
+    def get_config(self):
+        config = super(CustomWeightedLayer, self).get_config()
+        config.update({"weights": self.weights})
+        return config
+
+
 def create_model():
     input_shape = (None,)
     input_layer = tf.keras.layers.Input(shape=input_shape, name="user_performance")
 
-    # input weighing
+    # input weighing based on how recent the input was
     recency_layer = RecencyWeightingLayer(decay_rate=0.7)(input_layer)
+
+    # parameter weights
+    
+
+    # input weighing based on parameters
+
+    dense_layer = tf.keras.layers.Dense(units=64, activation="relu")(recency_layer)
+    output_layer = tf.keras.layers.Dense(units=1, activation="sigmoid")(dense_layer)
+
+    model = tf.keras.models.Model(inputs=input_layer, outputs=output_layer)
+
+    return model
