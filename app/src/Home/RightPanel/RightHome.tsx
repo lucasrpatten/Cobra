@@ -1,5 +1,5 @@
 import React from "react";
-import snekMascot from "../snekMascot.svg";
+import snekMascot from "../snake.svg";
 import { Link } from "react-router-dom";
 
 const RightHome: React.FC = () => {

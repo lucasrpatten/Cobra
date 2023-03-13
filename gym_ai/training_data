@@ -8,7 +8,7 @@
           "accuracy": 0.85,
           "difficulty": 57,
           "type": "sorting",
-          "feedback": "too easy"
+          "feedback": 0
         },
         "find_string": {
           "attempts": 2,
@@ -16,7 +16,7 @@
           "accuracy": 0.95,
           "difficulty": 77,
           "type": "searching",
-          "feedback": "just right"
+          "feedback": 1
         },
         "if_if_if_then": {
           "attempts": 1,
@@ -24,7 +24,7 @@
           "accuracy": 0.80,
           "difficulty": 94,
           "type": "conditionals",
-          "feedback": "too hard"
+          "feedback": 2
         }
       }
     }

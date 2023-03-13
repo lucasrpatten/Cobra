@@ -37,6 +37,7 @@
     "concurrently": "^7.4.0",
     "electron": "^23.0.0",
     "electron-builder": "^23.6.0",
+    "electron-reloader": "^1.2.3",
     "framer-motion": "^9.0.2",
     "monaco-editor": "^0.35.0",
     "postcss": "^8.4.17",

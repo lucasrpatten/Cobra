@@ -3,7 +3,7 @@ const { promisify } = require('util');
 const readdir = promisify(fs.readdir);
 
 // Create Profiles
-global.share.ipcMain.handle('create-profile', async (_, user, picture = "snake") => {
+global.share.ipcMain.handle('create-profile', async (_, user, picture = "snakeprofile") => {
   const profilePath = global.share.app.getPath("userData") + "/Profiles/" + user + '/'
   const toWrite = {
     username: user,

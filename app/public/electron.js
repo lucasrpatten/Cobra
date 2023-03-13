@@ -28,6 +28,8 @@ function createWindow() {
   mainWindow.on('closed', () => mainWindow = null);
 }
 
+if (isDev) {try {require('electron-reloader')(module);} catch {}}
+
 app.on('ready', createWindow);
 
 

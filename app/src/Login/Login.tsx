@@ -26,7 +26,7 @@ const Login = () => {
     <div className="max-w-full max-h-full w-full h-full bg-black absolute">
       <div className="flex flex-wrap h-full w-full justify-center items-center absolute">
         {profiles}
-        <Profile name="Create New User" profilePicture={"snake"} />
+        <Profile name="Create New User" profilePicture="snake" />
       </div>
     </div>
   );
