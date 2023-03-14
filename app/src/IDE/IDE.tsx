@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React, {
+  useState,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import * as monaco from "monaco-editor";
 import MonacoEditor, { loader } from "@monaco-editor/react"; // https://github.com/suren-atoyan/monaco-react
 import Intro from "../Lessons/PythonBasics/Intro/Intro";
@@ -13,24 +18,10 @@ interface Properties {
   checkTests?: boolean;
 }
 
-const IDE: React.FC<Properties> = (props: Properties) => {
+const IDE = forwardRef((props: Properties, ref) => {
   const [editorState, setEditorState] = useState(props.defaultValue);
   const handleEditorChange: any = (value: string, event: any) => {
     setEditorState(value);
-  };
-
-  const runCode = async function () {
-    if (props.checkTests) {
-      props.returnResponse(editorState)
-    }
-    else {
-      const exePath = "/usr/bin/python";
-      const result = await ipcRenderer.invoke("run-python-code", {
-        code: editorState,
-        interpreterPath: exePath,
-      });
-      props.returnResponse(result)
-    }
   };
 
   const editorOptions = {
@@ -41,9 +32,26 @@ const IDE: React.FC<Properties> = (props: Properties) => {
     quickSuggestions: true,
   };
 
+
+      const runCode = async () => {
+        if (props.checkTests) {
+          props.returnResponse(editorState);
+        } else {
+          const exePath = "/usr/bin/python";
+          const result = await ipcRenderer.invoke("run-python-code", {
+            code: editorState,
+            interpreterPath: exePath,
+          });
+          props.returnResponse(result);
+        }
+      }
+
+      useImperativeHandle(ref, () => ({
+        runCode
+      }))
+
+  // assign the ref to an element (in this case, a div)
   return (
-    <>
-      <button onClick={runCode}>Run</button>
       <MonacoEditor
         defaultLanguage="python"
         // theme="vs-dark"
@@ -53,8 +61,7 @@ const IDE: React.FC<Properties> = (props: Properties) => {
         height="100%"
         options={editorOptions}
       />
-    </>
   );
-};
+  })
 
 export default IDE;

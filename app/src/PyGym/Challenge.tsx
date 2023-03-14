@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import IDE from "../IDE/IDE";
 import problems from "./problems";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ interface ChallengeProperties {
 }
 
 const Challenge = ({ problem }: ChallengeProperties) => {
+
+  const ideRef = useRef<any>();
+
   const checkCases = async (code: string) => {
     for (const testCase of problem.test_cases) {
       const keys: string[] = Object.keys(testCase);
@@ -20,6 +23,7 @@ const Challenge = ({ problem }: ChallengeProperties) => {
       let tempCode =
         code +
         `\n\n${problem.test_function.replace(keys[0], `"${values[0]}"`)}`;
+        console.log(tempCode)
 
       const result = await ipcRenderer.invoke("run-python-code", {
         code: tempCode,
@@ -27,9 +31,6 @@ const Challenge = ({ problem }: ChallengeProperties) => {
       });
       const expectedResult = values[values.length - 1] + "\n";
       if (result !== expectedResult) {
-        console.log(result !== expectedResult);
-        console.log(result);
-        console.log(expectedResult);
         return false;
       }
     }
@@ -40,11 +41,13 @@ const Challenge = ({ problem }: ChallengeProperties) => {
   return (
     <>
       <LeftPanel instructions={problem.instructions} />
-      <div className="h-screen">
+      <button onClick={() => (ideRef.current?.runCode())} className="absolute bottom-0">Run</button>
+      <div className="h-60 w-2/3 absolute h-2/3 top-10 right-0">
         <IDE
           returnResponse={checkCases}
           checkTests={true}
           defaultValue={problem.starting_code}
+          ref={ideRef}
         />
       </div>
     </>
