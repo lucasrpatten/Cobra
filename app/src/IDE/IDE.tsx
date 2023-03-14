@@ -7,22 +7,30 @@ const { ipcRenderer } = window.require("electron");
 
 loader.config({ monaco });
 
-interface Properties {}
+interface Properties {
+  returnResponse: any;
+  defaultValue?: string;
+  checkTests?: boolean;
+}
 
 const IDE: React.FC<Properties> = (props: Properties) => {
-  const [editorState, setEditorState] = useState<string>('print("Hello World!")');
+  const [editorState, setEditorState] = useState(props.defaultValue);
   const handleEditorChange: any = (value: string, event: any) => {
     setEditorState(value);
   };
 
   const runCode = async function () {
-    const exePath = "/usr/bin/python";
-    const result = await ipcRenderer.invoke("run-python-code", {
-      code: editorState,
-      interpreterPath: exePath,
-    });
-    console.log(result);
-    return result;
+    if (props.checkTests) {
+      props.returnResponse(editorState)
+    }
+    else {
+      const exePath = "/usr/bin/python";
+      const result = await ipcRenderer.invoke("run-python-code", {
+        code: editorState,
+        interpreterPath: exePath,
+      });
+      props.returnResponse(result)
+    }
   };
 
   const editorOptions = {
@@ -35,7 +43,7 @@ const IDE: React.FC<Properties> = (props: Properties) => {
 
   return (
     <>
-      <button onClick={() => console.log(runCode())}>Run</button>
+      <button onClick={runCode}>Run</button>
       <MonacoEditor
         defaultLanguage="python"
         // theme="vs-dark"
