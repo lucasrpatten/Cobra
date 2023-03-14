@@ -7,8 +7,9 @@ const problems = {
     example_solution: "def print_argument(arg1):\n    print(arg1)",
     test_function: "print_argument(arg1)",
     test_cases: [
-      ["This message should be printed.", "This message should be printed."],
-      ["Cobra", "Cobra"]
+      {arg1: "This message should be printed.", output: "This message should be printed."},
+      {arg1: "Cobra", output: "Cobra"},
+
     ]
   }
 }

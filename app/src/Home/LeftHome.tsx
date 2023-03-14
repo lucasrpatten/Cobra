@@ -2,6 +2,7 @@ import React from "react";
 import ModuleButton from "./ModuleButton";
 import PythonBasicsNav from "./RightPanel/PythonBasicsNav";
 import RightHome from "./RightPanel/RightHome";
+import PyGymHome from "./RightPanel/PyGymHome";
 
 interface Properties {
   updateRightSide: any;
@@ -16,6 +17,7 @@ const LeftSide: React.FC<Properties> = (props: Properties) => {
       >
         <ModuleButton title="Home" page={<RightHome />} passChildData={props.updateRightSide} />
         <ModuleButton title="Python Basics" page={<PythonBasicsNav />} passChildData={props.updateRightSide} />
+        <ModuleButton title="PyGYM" page={<PyGymHome />} passChildData={props.updateRightSide} />
       </div>
     </>
   );
