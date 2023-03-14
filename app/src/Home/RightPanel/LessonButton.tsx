@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 interface Properties {
   title: string;
+  lessonModule: string;
+  lessonTitle: string;
 }
 
 const CloseButton = () => {
@@ -27,6 +30,8 @@ const CloseButton = () => {
 
 const LessonButton: React.FC<Properties> = (props: Properties) => {
   const [showBubble, setShowBubble] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleShowBubble = () => {
     setShowBubble(!showBubble);
@@ -67,6 +72,7 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
                   </span>
                 </div>
                 <button
+                onClick={() => navigate("/lessons/" + props.lessonModule + "/" + props.lessonTitle)}
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded-lg"
                   type="button"
                 >
