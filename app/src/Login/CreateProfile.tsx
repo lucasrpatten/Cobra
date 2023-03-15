@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import "./../index.css";
 
 const { ipcRenderer } = window.require("electron");
@@ -21,6 +23,11 @@ const CreateProfile = () => {
 
   return (
     <>
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
       <div className="w-full h-screen bg-dark-gray flex gap-10 flex-col items-center justify-center">
         <div className="flex justify-center">
         {["snake", "duck"].map((name) => (
@@ -52,6 +59,7 @@ const CreateProfile = () => {
             </form>
           </div>
       </div>
+      </motion.div>
     </>
   );
 };

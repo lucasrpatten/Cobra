@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Profile from "./Profile";
 import "./../index.css";
 import logo from "./snakeLogo.svg"
+import { motion } from "framer-motion";
+
 
 const { ipcRenderer } = window.require("electron");
 
@@ -24,6 +26,11 @@ const Login = () => {
   }, []);
 
   return (
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
     <div className="min-w-full min-h-screen bg-dark-gray items-center justify-center flex flex-col gap-10">
       <div className="flex flex-col sm:flex-row gap-2 sm:gap5 items-center justify-center">
         <img className="hidden sm:block" src={logo} />
@@ -36,6 +43,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

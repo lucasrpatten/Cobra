@@ -15,13 +15,15 @@ const root = ReactDOM.createRoot(
 root.render(
 
     <HashRouter>
+      <div className="bg-dark-gray">
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/create-profile" element={<CreateProfile />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/playground" element={<Playground />} />
-        <Route path="/lessons/:lessonModule/:lesson" element={<Lesson />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/create-profile" element={<CreateProfile />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/playground" element={<Playground />} />
+          <Route path="/lessons/:lessonModule/:lesson" element={<Lesson />} />
       </Routes>
+      </div>
     </HashRouter>
 );
 
