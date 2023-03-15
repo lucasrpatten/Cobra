@@ -4,6 +4,8 @@ import problems from "./problems";
 import { useNavigate } from "react-router-dom";
 import LeftPanel from "./LeftPanel";
 import TestCases from "./TestCases";
+import { motion } from "framer-motion";
+
 
 const problem = problems.print_argument;
 
@@ -40,11 +42,16 @@ const Challenge = ({ problem }: ChallengeProperties) => {
 
   return (
     <>
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
       <LeftPanel instructions={problem.instructions} />
       <div className="w-2/3 absolute min-h-full right-0">
       <button
         onClick={() => ideRef.current?.runCode()}
-        className="relative float-right"
+        className=""
       >
         Run
       </button>
@@ -59,6 +66,7 @@ const Challenge = ({ problem }: ChallengeProperties) => {
           </div>
       <TestCases />
       </div>
+      </motion.div>
     </>
   );
 };

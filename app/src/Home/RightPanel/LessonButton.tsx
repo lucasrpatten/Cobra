@@ -52,7 +52,7 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
 
   return (
     <>
-      <div className="relative">
+      <div className="w-full h-screen flex flex-col items-center justify-center">
         <div>
           <AnimatePresence>
             {showBubble && (
@@ -60,12 +60,12 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
                 initial={initialAnimation}
                 animate={animateIn}
                 exit={animateOut}
-                className="speech-bubble-container shadow-lg rounded-lg bg-white relative flex flex-col w-64 text-center py-3"
+                className="p-5 speech-bubble-container shadow-lg rounded-lg bg-white flex flex-col w-64 text-center py-3"
                 style={{ zIndex: 1, position: "relative", top: "-20px" }}
               >
                 <div className="flex justify-between">
                   <p className="font-light text-sm">
-                    This is a small description of this lesson.
+                  An Introduction to Programming
                   </p>
                   <span onClick={handleCloseBubble} className="cursor-pointer">
                     <CloseButton />
@@ -73,7 +73,7 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
                 </div>
                 <button
                 onClick={() => navigate("/lessons/" + props.lessonModule + "/" + props.lessonTitle)}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded-lg"
+                  className="bg-teal hover:bg-white border-4 border-teal duration-300 text-dark-gray font-bold py-2 px-4 mt-2 rounded-lg"
                   type="button"
                 >
                   Play
@@ -83,10 +83,10 @@ const LessonButton: React.FC<Properties> = (props: Properties) => {
           </AnimatePresence>
         </div>
         <div onClick={handleShowBubble} className="cursor-pointer">
-          <div className="border-red-500 w-32 h-32 bg-white rounded-full overflow-hidden text-center">
-            hi
+          <div className="border-teal bg-white rounded-xl overflow-hidden text-center">
+            Lesson One
           </div>
-          <div className="">{props.title}</div>
+          <div className="text-white text-xl ">{props.title}</div>
         </div>
       </div>
     </>

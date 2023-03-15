@@ -20,7 +20,7 @@ const TestCases = () => {
   return (
     <>
       <div className="bottom-0 fixed w-full bg-green-700 h-1/3">
-        hey there
+        Complete your practice prompt:
       </div>
     </>
   );

@@ -20,7 +20,7 @@ const ContinueButton: React.FC<ContinueProps> = (props: ContinueProps) => {
 const LessonGroup: React.FC<GroupProps> = (props: GroupProps) => {
   return (
     <>
-      <div>
+      <div className="p-6">
         {props.Content}
         <div>
           <ContinueButton wasPressed={props.continueFunc} />

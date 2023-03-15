@@ -33,7 +33,7 @@ const MultipleChoice: FC<Properties> = ({
     setCorrect(option === correctOption);
   };
   return (
-    <div className="flex flex-col">
+    <div className="p-7 flex flex-col">
       <h3 className="text-2xl font-bold">{title}</h3>
       {options.map((option, index) => (
         <div key={index}>
@@ -43,9 +43,9 @@ const MultipleChoice: FC<Properties> = ({
             className={`flex items-center p-2 ${
               submitted
                 ? selected === correctOption && selected === option
-                  ? "bg-green-300"
+                  ? "bg-teal"
                   : selected !== correctOption && selected === option
-                  ? "bg-red-300"
+                  ? "bg-red"
                   : ""
                 : ""
             }`}
@@ -67,7 +67,7 @@ const MultipleChoice: FC<Properties> = ({
         </div>
       ))}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+        className="bg-red hover:bg-white border-4 border-red duration-300 text-dark-gray font-bold py-2 px-4 rounded mt-4"
         onClick={() => handleSubmit()}
         disabled={submitted && !correct}
       >

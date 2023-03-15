@@ -14,7 +14,7 @@ const PythonBasicsNav: React.FC<Properties> = (props: Properties) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-      <div className="nav-wrapper absolute bottom-0">
+      <div className="flex items-center justify-center w-full h-screen nav-wrapper">
         <LessonButton title="What Is Programming?" lessonModule="PythonBasics" lessonTitle="Intro" />
       </div>
       </motion.div>
