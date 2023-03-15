@@ -50,7 +50,6 @@ const IDE = forwardRef((props: Properties, ref) => {
         runCode
       }))
 
-  // assign the ref to an element (in this case, a div)
   return (
       <MonacoEditor
         defaultLanguage="python"

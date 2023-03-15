@@ -1,6 +1,6 @@
 const problems = {
   print_argument: {
-    instructions: "Print the argument that is passed to the function.",
+    instructions: "Print the argument that is passed to the function to the terminal.",
     starting_code: "def print_argument(arg1):\n\t",
     category: "functions",
     difficulty: 6,
