@@ -30,7 +30,7 @@ const Login = () => {
         <h1 className="mt-0 uppercase text-white text-4xl font-bold text-center">Cobra</h1>
       </div>
       <div className="flex items-center justify-center overflow-auto overflow-x-auto h-96 sm:h-64 w-5/6">
-        <div className="flex flex-col w-40 sm:w-full sm:flex-row justify-center items-center gap-10 mt-64 sm:ml-64 sm:mt-0">
+        <div className="mx-44 flex flex-col w-40 sm:w-full sm:flex-row justify-center items-center gap-10 mt-64 sm:ml-64 sm:mt-0">
           {profiles}
           <Profile name="Create New User" profilePicture={"snake"} />
         </div>
