@@ -1,23 +1,22 @@
 import React from "react";
-import snekMascot from "../snekMascot.svg";
+import snekMascot from "../../Login/snakeLogo.svg";
 import { Link } from "react-router-dom";
 
 const RightHome: React.FC = () => {
   return (
     <>
-      <div className="w-full h-screen relative float-right bg-green-300 inline-grid grid-rows-6 grid-cols-12">
+      <div className="flex flex-col items-center justify-center text-white w-full h-screen relative float-right">
         <div className="text-center align-middle col-span-8 row-start-1 col-start-3 relative min-h-[50px]">
-          <div className="absolute w-full bottom-0 left-0 text-4xl font-black font-mono">
-            Welcome {localStorage.getItem("user")}
+          <div className="mt-14 w-full bottom-0 left-0 text-4xl font-black font-mono">
+            Welcome to your dashboard: <br/> <span className="text-red uppercase">{localStorage.getItem("user")}</span>
           </div>
         </div>
-
         <img
           src={snekMascot}
           alt=""
-          className="row-start-2 w-full col-span-6 col-start-4 row-span-3 truncate"
+          className="w-1/2 hidden sm:block"
         />
-        <Link to="/playground">HELLO</Link>
+        <Link className="duration-300 hover:bg-dark-gray hover:text-teal border-4 border-teal px-5 py-2 bg-teal text-dark-gray font-bold rounded-xl" to="/playground">Start Coding</Link>
       </div>
     </>
   );

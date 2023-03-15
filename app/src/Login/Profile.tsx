@@ -46,21 +46,21 @@ const Profile = (props: ProfileDetails) => {
     return (
       <div
         onClick={() => navigate("/create-profile")}
-        className="w-28 h-32 mx-2"
+        className="hover:cursor-pointer w-28 h-32 mx-2"
       >
-        <div className="bg-white w-full h-28 rounded-full overflow-hidden">
+        <div className="border-4 hover:border-teal border-red duration-300 bg-white w-full sm:w-24 :h-auto rounded-full overflow-hidden">
           <img src={pfp} alt="Icon" />
         </div>
-        <p className="text-center w-full text-white">{props.name}</p>
+        <p className="font-semibold mt-5 text-center w-full text-white">{props.name}</p>
       </div>
     );
   } else {
     return (
-      <div onClick={() => login()} className="w-28 h-32 mx-2">
-        <div className="bg-white w-full h-28 rounded-full overflow-hidden">
+      <div onClick={() => login()} className="hover:cursor-pointer w-28 h-32 mx-2">
+        <div className="border-4 border-teal hover:border-red duration-300 bg-white w-full sm:w-24 h-auto rounded-full overflow-hidden">
           <img src={pfp} alt="Icon" />
         </div>
-        <p className="text-center w-full text-white">{props.name}</p>
+        <p className="font-semibold mt-5 text-center w-full text-white">{props.name}</p>
       </div>
     );
   }

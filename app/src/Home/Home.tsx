@@ -10,12 +10,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="bg-gray">
       <LeftSide updateRightSide={handleLeftData} />
-      <div className="w-2/3 relative float-right min-h-screen bg-green-300">
+      <div className="bg-dark-gray w-2/3 relative float-right min-h-screen bg-green-300">
         {rightSide}
       </div>
-    </>
+    </div>
   );
 };
 export default Home;

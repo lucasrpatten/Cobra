@@ -19,8 +19,8 @@ const CreateProfile = () => {
   };
   return (
     <>
-      <Link to="/">
-        <button>Frick Go Back</button>
+      <Link to="/" className="py-5 px-2 bg-red rounded-xl">
+        <button>Home</button>
       </Link>
       <form onSubmit={createThenNav}>
         <input

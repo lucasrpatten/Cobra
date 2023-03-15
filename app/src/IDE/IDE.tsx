@@ -40,7 +40,7 @@ const IDE: React.FC<Properties> = (props: Properties) => {
 
   return (
     <>
-      <button onClick={() => console.log(runCode())}>Run</button>
+      <button className="m-10 duration-300 text-white font-bold hover:bg-dark-gray border-4 border-red px-5 py-2 bg-red rounded-xl" onClick={() => console.log(runCode())}>Run</button>
       <MonacoEditor
         defaultLanguage="python"
         // theme="vs-dark"
