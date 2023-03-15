@@ -21,12 +21,12 @@ const CreateProfile = () => {
 
   return (
     <>
-      <div>
+      <div className="w-full h-screen bg-dark-gray flex gap-10 flex-col items-center justify-center">
         <div className="flex justify-center">
         {["snake", "duck"].map((name) => (
           <img
-            className={`relative inline-block bg-white w-28 h-28 rounded-full overflow-hidden hover:cursor-pointer ${
-              pfp === name ? "border-solid border-4 border-green-500" : ""
+            className={`m-5 relative inline-block bg-white w-28 h-28 rounded-full overflow-hidden hover:cursor-pointer ${
+              pfp === name ? "border-solid border-4 border-teal duration-300" : ""
             }`}
             src={`/assets/${name}profile.svg`}
             alt={`${name} profile`}
@@ -36,19 +36,21 @@ const CreateProfile = () => {
           />
         ))}
         </div>
-
-        <form onSubmit={createThenNav}>
-          <input
-            id="username_input"
-            placeholder="username"
-            type={"text"}
-            value={uname}
-            onChange={(e) => setUname(e.target.value)}
-            required
-          />
-          <Link to="/">Cancel Creation</Link>
-          <input id="create_user" type={"submit"} value="Create User" />
-        </form>
+          <div className="flex flex-col">
+            <form className="flex flex-col items-center justify-center gap-5" onSubmit={createThenNav}>
+              <input
+                id="username_input"
+                placeholder="username"
+                type={"text"}
+                value={uname}
+                onChange={(e) => setUname(e.target.value)}
+                required
+                className="px-5 py-2 rounded-xl bg-white border-4 border-teal text-dark-gray focus:border-red duration-300"
+              />
+              <input className="px-5 py-2 font-bold duration-300 border-4 rounded-xl hover:bg-dark-gray border-teal bg-teal hover:text-teal text-dark-gray" id="create_user" type={"submit"} value="Create User" />
+              <Link className="px-5 py-2 font-bold duration-300 border-4 rounded-xl bg-dark-gray hover:border-red hover:bg-red text-red hover:text-dark-gray" to="/">Cancel Creation</Link>
+            </form>
+          </div>
       </div>
     </>
   );

@@ -16,7 +16,7 @@ const RightHome: React.FC = () => {
           alt=""
           className="w-1/2 hidden sm:block"
         />
-        <Link className="duration-300 hover:bg-dark-gray hover:text-teal border-4 border-teal px-5 py-2 bg-teal text-dark-gray font-bold rounded-xl" to="/playground">Start PyGame</Link>
+        <Link className="my-10 duration-300 hover:bg-dark-gray hover:text-teal border-4 border-teal px-5 py-2 bg-teal text-dark-gray font-bold rounded-xl" to="/playground">Start PyGame</Link>
       </div>
     </>
   );
