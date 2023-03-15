@@ -3,10 +3,13 @@ import MultipleChoice from "../../LessonComponents/MultipleChoice";
 import randomize from "../../LessonComponents/multipleChoiceRandomizer";
 import IDE from "../../../IDE/IDE";
 import ContinueButton from "../../LessonComponents/ContinueButton";
+import IntroLeftPanel from "./leftside";
 
 interface Properties {}
 
-const randomized = randomize(["lucas", "george", "nathan"]);
+const randomized = randomize(["Interpreted", "Compiled", "Low-level"]);
+const randomized1 = randomize(["HTML and CSS", "Python and JavaScript", "C++ and Java"]);
+const randomized2 = randomize(["Its Easy of Use", "Its mainstream nature", "Its \"ultra fast performance\""]);
 
 const Intro: React.FunctionComponent<Properties> = (props: Properties) => {
   const [lessonShown, setLessonShown] = useState<any>(null);
@@ -17,25 +20,52 @@ const Intro: React.FunctionComponent<Properties> = (props: Properties) => {
   };
 
   const elements = [
+    <div className="absolute right-0 w-1/2">
     <div key="part1">
       <MultipleChoice
         options={randomized}
-        correctOption="lucas"
-        question="Who is the coolest?"
+        correctOption="Interpreted"
+        question="What kind of language is Python?"
         continueFunc={showNext}
       />
+    </div>
     </div>,
-    <div className="h-screen" key="part2">
-      Howdy
-      <ContinueButton onClick={showNext} buttonText="Continue" />
+
+    <div className="absolute right-0 w-1/2">
+    <div key="part2">
+      <MultipleChoice
+        options={randomized1}
+        correctOption="HTML and CSS"
+        question="Which languages are most commonly used for Web Development"
+        continueFunc={showNext}
+        />
+    </div>
     </div>,
+
+    <div className="absolute right-0 w-1/2">
+    <div key="part3">
+      <MultipleChoice
+        options={randomized2}
+        correctOption="Its Easy of Use"
+        question="Why is Python so widely used?"
+        continueFunc={showNext}
+        />
+    </div>
+    </div>,
+    <div className="absolute right-0 w-1/2">
+      <div key="part4">
+      <h1 className="text-xl">Lesson Complete!</h1>
+      </div> 
+    </div>
+
   ];
 
   useEffect(() => {
-    setLessonShown(elements.slice(0, currentIndex).map((e) => e));
+    setLessonShown(elements.slice(currentIndex -1, currentIndex).map((e) => e));
   }, [currentIndex]);
 
-  return <>{lessonShown}</>;
+  return <>{lessonShown}
+    <IntroLeftPanel /></>;
 };
 
 export default Intro;
