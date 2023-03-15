@@ -1,0 +1,17 @@
+{
+  "id": "loop_through_list",
+  "title": "Loop Through List",
+  "description": "Write a Python function that loops through a given list of numbers and prints each number to the console.",
+  "difficulty": 2,
+  "solution": "def loop_through_list(numbers):\n    for num in numbers:\n        print(num)",
+  "tests": [
+    {
+      "input": [1, 2, 3],
+      "output": "1\n2\n3\n"
+    },
+    {
+      "input": [4, 5, 6, 7],
+      "output": "4\n5\n6\n7\n"
+    }
+  ]
+}

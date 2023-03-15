@@ -8,8 +8,7 @@ const PythonBasicsNav: React.FC<Properties> = (props: Properties) => {
   return (
     <>
       <div className="nav-wrapper absolute bottom-0">
-        <LessonButton title="What Is Programming?" />
-        <Link to="/lessons/PythonBasics/Intro">Hello There</Link>
+        <LessonButton title="What Is Programming?" lessonModule="PythonBasics" lessonTitle="Intro" />
       </div>
     </>
   );

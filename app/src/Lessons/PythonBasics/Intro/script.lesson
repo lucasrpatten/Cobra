@@ -20,5 +20,5 @@ As mentioned earlier, some languages are compiled while others are interpreted. 
 
 Compiling is a process where the source code (code written in a readable format such as Python or Java) is translated directly into machine code all at once before being executed by the computer - hence why these types of languages are referred to as compiled languages (C++ being one example). On the other hand interpreting involves translating the source code line by line while executing it at the same time; this type of language then becomes known as an interpreted language (Python being one example).
 
-In conclusion...  
+In conclusion...
 Programming can seem intimidating at first but with enough practice anyone can become comfortable with coding! There are many different types of languages out there each having their own advantages and purposes; understanding if they're compiled or interpreted should help you decide which one best fits your needs!

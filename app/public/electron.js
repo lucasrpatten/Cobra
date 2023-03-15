@@ -10,6 +10,7 @@ const path = require('path');
 const isDev = require('electron-is-dev');
 
 require('./api/profiles')
+require('./api/codeRunner')
 
 let mainWindow;
 
@@ -26,6 +27,8 @@ function createWindow() {
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.on('closed', () => mainWindow = null);
 }
+
+if (isDev) {try {require('electron-reloader')(module);} catch {}}
 
 app.on('ready', createWindow);
 

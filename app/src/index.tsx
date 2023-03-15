@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login/Login";
 import CreateProfile from "./Login/CreateProfile";
 import Home from "./Home/Home";
-import Playground from "./Playground/Playground";
+import Playground from "./PyGym/PyGym";
 import Lesson from "./Lessons/Lesson";
 
 const ReactDOM = require("react-dom/client");

@@ -5,7 +5,7 @@ const { spawn } = require("child_process");
 
 async function runPythonCode(code, interpreterPath) {
   return new Promise((resolve, reject) => {
-    const process = spawn(interpreterPath, ["-c", code]);
+    const process = spawn(interpreterPath || "python", ["-c", code]);
     let output = "";
 
     process.stdout.on("data", (data) => {
@@ -13,25 +13,26 @@ async function runPythonCode(code, interpreterPath) {
     });
 
     process.stderr.on("data", (data) => {
-      reject(data.toString());
+      output += data.toString();
     });
 
     process.on("close", (code) => {
       if (code === 0) {
         resolve(output);
       } else {
-        reject(`Process exited with code ${code}`);
+        reject(output);
       }
     });
   });
 }
 
-global.share.ipcMain.handle("run-python-code", async (event, arg) => {
-  try {
-    const { code, interpreterPath } = arg;
+
+global.share.ipcMain.handle("run-python-code", async (_, {code, interpreterPath}) => {
+   console.log(code);
+   try {
     const result = await runPythonCode(code, interpreterPath);
-    event.returnValue = result;
+    return result;
   } catch (error) {
-    event.returnValue = error.toString();
+    return error
   }
 });

@@ -4,6 +4,7 @@ import PythonBasicsNav from "./RightPanel/PythonBasicsNav";
 import RightHome from "./RightPanel/RightHome";
 import { Link, useNavigate } from "react-router-dom";
 
+import PyGymHome from "./RightPanel/PyGymHome";
 
 interface Properties {
   updateRightSide: any;
@@ -23,6 +24,7 @@ const LeftSide: React.FC<Properties> = (props: Properties) => {
           <ModuleButton title="Home" page={<RightHome />} passChildData={props.updateRightSide} />
         </Link>
         <ModuleButton title="Python Basics" page={<PythonBasicsNav />} passChildData={props.updateRightSide} />
+        <ModuleButton title="PyGYM" page={<PyGymHome />} passChildData={props.updateRightSide} />
       </div>
     </>
   );

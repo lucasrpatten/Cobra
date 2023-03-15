@@ -6,6 +6,7 @@ interface Properties {
   options: string[];
   correctOption: string;
   question: string;
+  continueFunc: any;
 }
 
 // Component
@@ -13,12 +14,19 @@ const MultipleChoice: FC<Properties> = ({
   options,
   correctOption,
   question: title,
+  continueFunc
 }) => {
   // Set up state
   const [selected, setSelected] = useState("");
   const [correct, setCorrect] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = () => {
+    setSubmitted(true)
+    if (correct) {
+      continueFunc();
+    }
+  }
   // Handle selection
   const handleSelection = (option: string) => {
     setSelected(option);
@@ -60,7 +68,7 @@ const MultipleChoice: FC<Properties> = ({
       ))}
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-        onClick={() => setSubmitted(true)}
+        onClick={() => handleSubmit()}
         disabled={submitted && !correct}
       >
         Submit
