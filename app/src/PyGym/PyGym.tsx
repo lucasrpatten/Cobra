@@ -4,7 +4,7 @@ import problems from "./problems";
 import { useNavigate } from "react-router-dom";
 import Challenge from "./Challenge";
 
-const problem = problems.print_argument;
+const problem = problems[0];
 
 const { ipcRenderer } = window.require("electron");
 const Playground = () => {

@@ -4,23 +4,16 @@
     "title": "Loop Through List",
     "description": "Write a Python function that loops through a given list of numbers and prints each number to the console.",
     "difficulty": 1,
-    "solution": "def loop_through_list(numbers):\n    for num in numbers:\n        print(num)",
+    "starting_code": "def loop_through_list(numbers):\n\t# Write your code here\n\t",
+    "potential_solution": "def loop_through_list(numbers):\n    for num in numbers:\n        print(num)",
+    "test_function": "loop_through_list(numbers)",
     "tests": [
       {
-        "input": [
-          1,
-          2,
-          3
-        ],
+        "input": [1, 2, 3],
         "output": "1\n2\n3\n"
       },
       {
-        "input": [
-          4,
-          5,
-          6,
-          7
-        ],
+        "input": [4, 5, 6, 7],
         "output": "4\n5\n6\n7\n"
       }
     ]
@@ -30,7 +23,9 @@
     "title": "Even Numbers",
     "description": "Write a Python function that takes a list of numbers as input and returns a new list containing only the even numbers from the original list.",
     "difficulty": 1,
-    "solution": "def even_numbers(numbers):\n    return [num for num in numbers if num % 2 == 0]",
+    "starting_code": "def even_numbers(numbers):\n\t# Write your code here\n\t",
+    "potential_solution": "def even_numbers(numbers):\n    return [num for num in numbers if num % 2 == 0]",
+    "test_function": "even_numbers(numbers)",
     "tests": [
       {
         "input": [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -47,7 +42,9 @@
     "title": "Count Words",
     "description": "Write a Python function that takes a string as input and returns the number of words in the string.",
     "difficulty": 2,
-    "solution": "def count_words(string):\n    return len(string.split())",
+    "starting_code": "def count_words(string):\n\t# Write your code here\n\t",
+    "potential_solution": "def count_words(string):\n    return len(string.split())",
+    "test_function": "count_words(string)",
     "tests": [
       {
         "input": "Hello, world!",
@@ -64,7 +61,9 @@
     "title": "Reverse List",
     "description": "Write a Python function that takes a list of numbers as input and returns a new list with the numbers in reverse order.",
     "difficulty": 2,
-    "solution": "def reverse_list(numbers):\n    return numbers[::-1]",
+    "starting_code": "def reverse_list(numbers):\n\t# Write your code here\n\t",
+    "potential_solution": "def reverse_list(numbers):\n    return numbers[::-1]",
+    "test_function": "reverse_list(numbers)",
     "tests": [
       {
         "input": [1, 2, 3, 4, 5],
@@ -81,7 +80,9 @@
     "title": "Capitalize Strings",
     "description": "Write a Python function that takes a list of strings as input and returns a new list with the first letter of each string capitalized.",
     "difficulty": 2,
-    "solution": "def capitalize_strings(strings):\n    return [string.capitalize() for string in strings]",
+    "starting_code": "def capitalize_strings(strings):\n\t# Write your code here\n\t",
+    "potential_solution": "def capitalize_strings(strings):\n    return [string.capitalize() for string in strings]",
+    "test_function": "capitalize_strings(strings)",
     "tests": [
       {
         "input": ["hello", "world"],
@@ -98,7 +99,9 @@
     "title": "Largest Subarray Sum",
     "description": "Write a Python function that takes a list of integers as input and returns the largest sum of any subsequence within the list.",
     "difficulty": 5,
-    "solution": "def largest_subarray_sum(nums):\n    max_sum = float('-inf')\n    current_sum = 0\n\n    for num in nums:\n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n\n    return max_sum",
+    "starting_code": "def largest_subarray_sum(nums):\n\t# Write your code here\n\t",
+    "potential_solution": "def largest_subarray_sum(nums):\n    max_sum = float('-inf')\n    current_sum = 0\n\n    for num in nums:\n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n\n    return max_sum",
+    "test_function": "largest_subarray_sum(nums)",
     "tests": [
       {
         "input": [-2, 1, -3, 4, -1, 2, 1, -5, 4],
@@ -115,7 +118,9 @@
     "title": "Rotate Matrix",
     "description": "Write a Python function that takes a square matrix (list of lists) as input and rotates it 90 degrees clockwise.",
     "difficulty": 6,
-    "solution": "def rotate_matrix(matrix):\n    n = len(matrix)\n    rotated = [[0] * n for _ in range(n)]\n\n    for i in range(n):\n        for j in range(n):\n            rotated[j][n - 1 - i] = matrix[i][j]\n\n    return rotated",
+    "starting_code": "def rotate_matrix(matrix):\n\t# Write your code here\n\t",
+    "potential_solution": "def rotate_matrix(matrix):\n    n = len(matrix)\n    rotated = [[0] * n for _ in range(n)]\n\n    for i in range(n):\n        for j in range(n):\n            rotated[j][n - 1 - i] = matrix[i][j]\n\n    return rotated",
+    "test_function": "rotate_matrix(matrix)",
     "tests": [
       {
         "input": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],

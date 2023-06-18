@@ -7,7 +7,8 @@ import TestCases from "./TestCases";
 import { motion } from "framer-motion";
 
 
-const problem = problems.print_argument;
+
+const problem = problems[0];
 
 const { ipcRenderer } = window.require("electron");
 
@@ -42,19 +43,19 @@ const Challenge = ({ problem }: ChallengeProperties) => {
 
   return (
     <>
-    <motion.div
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-      <LeftPanel instructions={problem.instructions} />
-      <div className="w-2/3 absolute min-h-full right-0">
-      <button
-        onClick={() => ideRef.current?.runCode()}
-        className=""
-      >
-        Run
-      </button>
+        <LeftPanel instructions={problem.instructions} />
+        <div className="w-2/3 absolute min-h-full right-0">
+          <button
+            onClick={() => ideRef.current?.runCode()}
+            className=""
+          >
+            Run
+          </button>
 
           <div className="absolute w-full h-3/4 my-6">
             <IDE
@@ -64,8 +65,8 @@ const Challenge = ({ problem }: ChallengeProperties) => {
               ref={ideRef}
             />
           </div>
-      <TestCases />
-      </div>
+          <TestCases />
+        </div>
       </motion.div>
     </>
   );
