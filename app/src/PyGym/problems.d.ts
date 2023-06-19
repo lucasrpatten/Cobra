@@ -15,6 +15,6 @@ interface TestCase {
 }
 
 declare module "./problems.json" {
-    const value: Problem[];
-    export default value;
+    const problems: Array<Problem[]>;
+    export default problems;
 }

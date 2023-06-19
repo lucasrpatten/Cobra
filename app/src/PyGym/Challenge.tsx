@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import IDE from "../IDE/IDE";
-import problems from "./problems";
+import problems from "./problems.json";
 import { useNavigate } from "react-router-dom";
 import LeftPanel from "./LeftPanel";
 import TestCases from "./TestCases";
