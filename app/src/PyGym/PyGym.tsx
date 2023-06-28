@@ -1,17 +1,20 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import IDE from "../IDE/IDE";
 import problems from "./problems.json";
 import { useNavigate } from "react-router-dom";
 import Challenge from "./Challenge";
-
-const problem = problems[0];
-
+import { useParams } from "react-router-dom";
 const { ipcRenderer } = window.require("electron");
-const Playground = () => {
+
+const PyGym = () => {
+  const { challengeID } = useParams();
+  console.log(challengeID)
+  const problem = problems.find(prob => prob.id === challengeID);
+  console.log(problem)
   return (
     <>
-      <Challenge problem={problem}/>
+      <Challenge problem={problem} />
     </>
   );
 };
-export default Playground;
+export default PyGym;

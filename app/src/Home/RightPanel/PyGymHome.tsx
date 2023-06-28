@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import challenges from "../../PyGym/problems.json";
+import React, { MouseEventHandler, useState } from "react";
 import { Link } from "react-router-dom";
+import challenges from "../../PyGym/problems.json";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./scrollbar.css";
 import "./pygymhome.css";
@@ -11,11 +12,12 @@ interface ProblemProps {
 
 const Problem: React.FC<ProblemProps> = ({ problem }) => {
   return (
-    <>
+    <Link to={`/pygym/${problem.id}`} style={{ display: 'contents' }}>
       <div className="w-full col-span-3 grid-item">{problem.title}</div>
       <div className="w-full col-span-1 grid-item">{problem.difficulty}</div>
       <div className="w-full col-span-1 grid-item">X</div>
-    </>
+    </Link>
+
   )
 }
 

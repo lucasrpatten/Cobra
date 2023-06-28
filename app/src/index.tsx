@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login/Login";
 import CreateProfile from "./Login/CreateProfile";
 import Home from "./Home/Home";
-import Playground from "./PyGym/PyGym";
+import PyGym from "./PyGym/PyGym";
 import Lesson from "./Lessons/Lesson";
 
 const ReactDOM = require("react-dom/client");
@@ -20,7 +20,7 @@ root.render(
           <Route path="/" element={<Login />} />
           <Route path="/create-profile" element={<CreateProfile />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/playground" element={<Playground />} />
+          <Route path="/pygym/:challengeID" element={<PyGym />} />
           <Route path="/lessons/:lessonModule/:lesson" element={<Lesson />} />
       </Routes>
       </div>

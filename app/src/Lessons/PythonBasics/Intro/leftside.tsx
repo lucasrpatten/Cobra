@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 
 const IntroLeftPanel = () => {
-const navigate = useNavigate();
-    return (
-      <>
+  const navigate = useNavigate();
+  return (
+    <>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -23,19 +23,19 @@ const navigate = useNavigate();
           <br></br>
           <h1 className="text-xl underline"> Section 3: Compiled vs Interpreted Languages </h1>
           <div className="text-lg">As mentioned earlier, some languages are compiled while others are interpreted. To understand what this means exactly let's start by talking about machine code - also known as binary code - which computers actually understand. All modern day programming languages will eventually be translated into machine code so that the computer can execute them correctly; however there are two different ways in which this happens - either through compiling or interpreting the code. Compiling is a process where the source code (code written in a readable format such as Python or Java) is translated directly into machine code all at once before being executed by the computer - hence why these types of languages are referred to as compiled languages (C++ being one example). On the other hand interpreting involves translating the source code line by line while executing it at the same time; this type of language then becomes known as an interpreted language (Python being one example). In conclusion... Programming can seem intimidating at first but with enough practice anyone can become comfortable with coding! There are many different types of languages out there each having their own advantages and purposes; understanding if they're compiled or interpreted should help you decide which one best fits your needs!
-            </div>
+          </div>
           <div className="absolute bottom-0 w-full">
-              <button className=" fixed bottom-0 left-0 w-1/2 bg-red" onClick={() => navigate('/home')}>
-                Exit
-              </button>
-              <button className=" fixed bottom-0 right-0 w-1/2 bg-teal" onClick={() => window.location.reload()}>
-                Reset
-              </button>
+            <button className=" fixed bottom-0 left-0 w-1/2 bg-red" onClick={() => navigate('/home')}>
+              Exit
+            </button>
+            <button className=" fixed bottom-0 right-0 w-1/2 bg-teal" onClick={() => window.location.reload()}>
+              Reset
+            </button>
           </div>
         </div>
-        </motion.div>
-      </>
-    );
-  };
-  
-  export default IntroLeftPanel;
+      </motion.div>
+    </>
+  );
+};
+
+export default IntroLeftPanel;

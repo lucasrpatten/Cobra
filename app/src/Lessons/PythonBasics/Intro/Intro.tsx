@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MultipleChoice from "../../LessonComponents/MultipleChoice";
 import randomize from "../../LessonComponents/multipleChoiceRandomizer";
-import IDE from "../../../IDE/IDE";
 import ContinueButton from "../../LessonComponents/ContinueButton";
 import IntroLeftPanel from "./leftside";
 
@@ -9,7 +8,7 @@ interface Properties {}
 
 const randomized = randomize(["Interpreted", "Compiled", "Low-level"]);
 const randomized1 = randomize(["HTML and CSS", "Python and JavaScript", "C++ and Java"]);
-const randomized2 = randomize(["Its Easy of Use", "Its mainstream nature", "Its \"ultra fast performance\""]);
+const randomized2 = randomize(["Its Ease of Use", "Its mainstream nature", "Its \"ultra fast performance\""]);
 
 const Intro: React.FunctionComponent<Properties> = (props: Properties) => {
   const [lessonShown, setLessonShown] = useState<any>(null);
@@ -55,7 +54,7 @@ const Intro: React.FunctionComponent<Properties> = (props: Properties) => {
     <div className="absolute right-0 w-1/2">
       <div key="part4">
       <h1 className="text-xl">Lesson Complete!</h1>
-      </div> 
+      </div>
     </div>
 
   ];
