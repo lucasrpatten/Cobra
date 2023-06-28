@@ -30,6 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@google-ai/generativelanguage": "^0.2.0",
     "@monaco-editor/react": "^4.4.6",
     "@types/react": "^17.0.52",
     "@types/react-dom": "^17.0.18",
@@ -39,6 +40,7 @@
     "electron-builder": "^23.6.0",
     "electron-reloader": "^1.2.3",
     "framer-motion": "^9.0.2",
+    "google-auth-library": "^8.8.0",
     "monaco-editor": "^0.35.0",
     "postcss": "^8.4.17",
     "react-router-dom": "^6.4.3",

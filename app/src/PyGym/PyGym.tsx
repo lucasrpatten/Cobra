@@ -8,9 +8,7 @@ const { ipcRenderer } = window.require("electron");
 
 const PyGym = () => {
   const { challengeID } = useParams();
-  console.log(challengeID)
   const problem = problems.find(prob => prob.id === challengeID);
-  console.log(problem)
   if (problem != undefined) {
     return (
       <>

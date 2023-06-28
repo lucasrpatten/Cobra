@@ -22,12 +22,12 @@ const Challenge = ({ problem }: ChallengeProperties) => {
       let tempCode =
         code +
         `\n\n${problem.test_function.replace(keys[0], `"${values[0]}"`)}`;
-      console.log(tempCode);
 
       const result = await ipcRenderer.invoke("run-python-code", {
         code: tempCode,
         interpreterPath: "python",
       });
+      console.log(result);
       const expectedResult = values[values.length - 1] + "\n";
       if (result !== expectedResult) {
         return false;
