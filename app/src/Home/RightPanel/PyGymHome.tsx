@@ -1,7 +1,6 @@
 import React, { MouseEventHandler, useState } from "react";
 import { Link } from "react-router-dom";
 import challenges from "../../PyGym/problems.json";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./scrollbar.css";
 import "./pygymhome.css";

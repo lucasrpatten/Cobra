@@ -11,10 +11,19 @@ const PyGym = () => {
   console.log(challengeID)
   const problem = problems.find(prob => prob.id === challengeID);
   console.log(problem)
-  return (
-    <>
-      <Challenge problem={problem} />
-    </>
-  );
+  if (problem != undefined) {
+    return (
+      <>
+        <Challenge problem={problem} />
+      </>
+    );
+  }
+  else {
+    return (
+      <>
+        <Challenge problem={problems[0]} />
+      </>
+    )
+  }
 };
 export default PyGym;

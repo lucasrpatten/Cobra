@@ -6,21 +6,17 @@ import LeftPanel from "./LeftPanel";
 import TestCases from "./TestCases";
 import { motion } from "framer-motion";
 
-
-
-const problem = problems[0];
-
 const { ipcRenderer } = window.require("electron");
 
 interface ChallengeProperties {
-  problem: any;
+  problem: Problem;
 }
 
 const Challenge = ({ problem }: ChallengeProperties) => {
   const ideRef = useRef<any>();
 
   const checkCases = async (code: string) => {
-    for (const testCase of problem.test_cases) {
+    for (const testCase of problem.tests) {
       const keys: string[] = Object.keys(testCase);
       const values: string[] = Object.values(testCase);
       let tempCode =
@@ -48,7 +44,7 @@ const Challenge = ({ problem }: ChallengeProperties) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <LeftPanel instructions={problem.instructions} />
+        <LeftPanel instructions={problem.description} />
         <div className="w-2/3 absolute min-h-full right-0">
           <button
             onClick={() => ideRef.current?.runCode()}
