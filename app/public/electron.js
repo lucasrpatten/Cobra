@@ -11,6 +11,7 @@ const isDev = require('electron-is-dev');
 
 require('./api/profiles')
 require('./api/codeRunner')
+require('./api/ai')
 
 let mainWindow;
 

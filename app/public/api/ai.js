@@ -1,8 +1,10 @@
 const { DiscussServiceClient } = require("@google-ai/generativelanguage");
 const { GoogleAuth } = require("google-auth-library");
 
+const apikey = require("./env.js");
+
 const MODEL_NAME = "models/chat-bison-001";
-const API_KEY = "YOUR API KEY";
+const API_KEY = apikey;
 
 const client = new DiscussServiceClient({
     authClient: new GoogleAuth().fromAPIKey(API_KEY),
@@ -37,26 +39,28 @@ const examples = [
 ];
 
 async function sendMessage(messages) {
-    client.generateMessage({
-        // required, which model to use to generate the result
+    const result = await client.generateMessage({
         model: MODEL_NAME,
-        // optional, 0.0 always uses the highest-probability result
         temperature: 0.25,
-        // optional, how many candidate results to generate
         candidateCount: 1,
-        // optional, number of most probable tokens to consider for generation
         top_k: 40,
-        // optional, for nucleus sampling decoding strategy
         top_p: 0.95,
         prompt: {
-            // optional, sent on every request and prioritized over history
             context: context,
-            // optional, examples to further finetune responses
             examples: examples,
-            // required, alternating prompt/response messages
             messages: messages,
         },
-    }).then(result => {
-        JSON.stringify(result, null, 2)
-    })
+    });
+
+    return result[0].candidates[0].content;
 }
+
+global.share.ipcMain.handle("send-message", async (_, {messages}) => {
+    try {
+        const result = await sendMessage(messages);
+        console.log(result);
+        return result
+    } catch (error) {
+        console.error(error);
+    }
+});
