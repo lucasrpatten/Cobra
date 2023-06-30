@@ -55,12 +55,12 @@ async function sendMessage(messages) {
     return result[0].candidates[0].content;
 }
 
-global.share.ipcMain.handle("send-message", async (_, {messages}) => {
+global.share.ipcMain.handle("send-message", async (_, { messages }) => {
     try {
-        const result = await sendMessage(messages);
-        console.log(result);
-        return result
+      const result = await sendMessage(messages);
+      return result;
     } catch (error) {
-        console.error(error);
+      console.error(error);
+      throw error; // Rethrow the error to propagate it to the caller
     }
-});
+  });
