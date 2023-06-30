@@ -63,13 +63,13 @@ const AIChat: React.FC = () => {
             className={`flex ${index % 2 === 1 ? 'justify-start' : 'justify-end'}`}
           >
             <div
-              className={`p-2 m-2 max-w-[90%] rounded-lg ${index % 2 === 1 ? 'bg-dark-teal text-left' : 'bg-gray text-white text-right'
+              className={`p-2 m-2 max-w-[90%] rounded-lg ${index % 2 === 1 ? 'bg-dark-teal text-left text-white' : 'bg-gray text-white text-right'
                 }`}
             >
               <ReactMarkdown
                 components={{
                   code: ({ node, inline, className, children, ...props }) => (
-                    <code className={`${className || ""} ${inline ? "" : "bg-[#1e7871] border-r-8"}`}
+                    <code className={`${className || ""} ${inline ? "" : "bg-[#1e7871]"}`}
                       {...props}
                     >
                       {children}
