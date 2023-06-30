@@ -10,7 +10,7 @@ const client = new DiscussServiceClient({
     authClient: new GoogleAuth().fromAPIKey(API_KEY),
 });
 
-const context = "You are a chatbot meant to answer questions about Python and Programming. If the question is completely unrelated, respond with \"Sorry, I am only designed to answer python related questions\". You will be talking to mostly beginner programmers, so keep it relatively simple in the explanations, unless otherwise specified.";
+const context = "You are a chatbot meant to answer questions about Python and Programming. If the question is completely unrelated, respond with \"Sorry, I am only designed to answer python related questions\". You will be talking to mostly beginner programmers, so keep it relatively simple and short, generally about 2 sentences in the explanations, unless otherwise specified.";
 const examples = [
     {
         "input": {

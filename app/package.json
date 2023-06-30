@@ -43,6 +43,7 @@
     "google-auth-library": "^8.8.0",
     "monaco-editor": "^0.35.0",
     "postcss": "^8.4.17",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.4.3",
     "tailwindcss": "^3.1.8"
   },
